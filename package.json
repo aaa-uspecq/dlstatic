@@ -1,0 +1,17 @@
+{
+  "name": "aaa_static",
+  "version": "1.0.0",
+  "description": "aaa static dependencies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "echo \"rm -r static;mkdir static\" | lftp -u ${SFTP_USER},${SFTP_PASSWORD} ftp.cluster010.hosting.ovh.net",
+    "publish": "sshpass -p $SFTP_PASSWORD scp -r public/* $SFTP_USER@ftp.cluster010.hosting.ovh.net:/home/aaauspec/static",
+    "full_publish": "npm run clean && npm run publish"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "purecss": "^3.0.0"
+  }
+}

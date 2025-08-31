@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    {{ with resources.Get "css/pure/pure-min.css" }}
+    <link rel="stylesheet" href="{{.RelPermalink }}" />
+    {{ end }}
+    <script src="https://cdn.docuseal.com/js/form.js"></script>
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      {{ range .Site.Menus.main }}
+      <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+    <hr/>
+    </nav>
